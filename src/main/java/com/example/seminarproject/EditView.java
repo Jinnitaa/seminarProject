@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
-import java.awt.event.ActionEvent;
+import java.lang.invoke.StringConcatException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -66,20 +66,25 @@ public class EditView implements Initializable {
     private Label systemLabel;
 
     public void initialize(URL url, ResourceBundle rb) {
-
     }
 
 
     public void Submit(javafx.event.ActionEvent actionEvent) {
-        String newName = username_login.getText();
-        String newDate = username_login1.getText();
-        int newParticipantCount = Integer.parseInt(username_login2.getText());
-        String newVenue = username_login3.getText();
-        System.out.println("You have subitted new name:"+newName);
-        System.out.println("You have subitted new Date::"+newDate);
-        System.out.println("You have subitted new Count:"+newParticipantCount);
-        System.out.println("You have subitted new Venue:"+newVenue);
+        try {
+            String newName = username_login.getText();
+            String newDate = username_login1.getText();
+            int newParticipantCount = Integer.parseInt(username_login2.getText());
+            String newVenue = username_login3.getText();
+            System.out.println("You have submitted new name: " + newName);
+            System.out.println("You have submitted new date: " + newDate);
+            System.out.println("You have submitted new participant count: " + newParticipantCount);
+            System.out.println("You have submitted new venue: " + newVenue);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Participant count must be a number.");
+        }
+
     }
+
 
     public void Cancel(javafx.event.ActionEvent actionEvent) {
 
