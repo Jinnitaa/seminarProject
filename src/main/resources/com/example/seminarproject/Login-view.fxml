@@ -74,15 +74,15 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></TextField>
-            <Button fx:id="loginButton" layoutX="51.0" layoutY="267.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: #152b55;" text="Login" textFill="WHITE" />
-            <Button fx:id="cancelButton" layoutX="52.0" layoutY="313.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: #152b55;" text="Cancel" textFill="WHITE" />
+            <Button fx:id="loginButton" layoutX="51.0" layoutY="267.0" mnemonicParsing="false" onAction="#loginButtonSetOnAction" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: #152b55;" text="Login" textFill="WHITE" />
+            <Button fx:id="cancelButton" layoutX="52.0" layoutY="313.0" mnemonicParsing="false" onAction="#cancelButtonSetOnAction" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: #152b55;" text="Cancel" textFill="WHITE" />
             <Label fx:id="message" layoutX="186.0" layoutY="241.0" textFill="RED" />
             <Label layoutX="89.0" layoutY="362.0" text="Haven't had an account?">
                <font>
                   <Font name="Bodoni MT" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="signupButton" layoutX="246.0" layoutY="358.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: #152b55;" text="Signup" textFill="#152b55" />
+            <Button fx:id="signupButton" layoutX="246.0" layoutY="358.0" mnemonicParsing="false" onAction="#signupSetOnAction" style="-fx-background-color: transparent; -fx-border-color: #152b55;" text="Signup" textFill="#152b55" />
             <TextField fx:id="email" layoutX="154.0" layoutY="154.0" opacity="0.88" prefHeight="25.0" prefWidth="155.0" style="-fx-border-color: #152b55; -fx-background-color: #F6F6FF;">
                <cursor>
                   <Cursor fx:constant="HAND" />

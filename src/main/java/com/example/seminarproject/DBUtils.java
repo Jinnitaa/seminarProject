@@ -1,7 +1,6 @@
 package com.example.seminarproject;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -19,7 +18,7 @@ public class DBUtils {
         // If they pass in the information
         if (username != null) {
             try {
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
+                FXMLLoader loader = new FXMLLoader(DBUtils.class.getClassLoader().getResource(fxmlFile));
                 root = loader.load();
                 welcomeController welcomeController1 = loader.getController();
                 welcomeController1.setUsername(username);
@@ -69,14 +68,14 @@ public class DBUtils {
             }
             // if user hasn't existed yet , we will insert user to our database
             else {
-                psInsert = connection.prepareStatement("INSERT INTO admin(username,email,password VALUES(?,?,?)");
+                psInsert = connection.prepareStatement("INSERT INTO admin(username,email,passsword)VALUES(?,?,?)");
                 psInsert.setString(1, username);
                 psInsert.setString(2, email);
                 psInsert.setString(3, password);
                 psInsert.executeUpdate();// To update the database
 
-                //To change scene from login page to welcome page
-                changeScene(event, "Login-view.fxml", "Welcome", username);
+                //To change scene from signup page to welcome page
+               DBUtils. changeScene(event, "welcome.fxml", "Welcome", username);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -127,7 +126,7 @@ public class DBUtils {
         // Set up connection with our database in mysql
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
-            preparedStatement = connection.prepareStatement("SELECT email,password FROM admin WHERE username=?");
+            preparedStatement = connection.prepareStatement("SELECT email,passsword FROM admin WHERE username=?");
             preparedStatement.setString(1,username);
             resultSet=preparedStatement.executeQuery();
 
@@ -142,12 +141,11 @@ public class DBUtils {
             else {
                 while (resultSet.next()) {
                     String storeEmail = resultSet.getString("email");
-                    String storePassword = resultSet.getString("password");
+                    String storePassword = resultSet.getString("passsword");
                     // To compare the password of user and in the database
-                    if(storePassword.equals(password)){
-                        changeScene(event,"Login-view.fxml","Login",username);
-                    }
-                    else{
+                    if(storeEmail.equals(email)&&storePassword.equals(password)) {
+                        changeScene(event, "welcome.fxml", "welcome", username);
+                    } else{
                         System.out.println("Password is incorrect");
                         Alert alert=new Alert(Alert.AlertType.ERROR);
                         alert.setContentText("The provided credential is incorrect");
