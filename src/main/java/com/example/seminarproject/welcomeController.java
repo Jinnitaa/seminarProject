@@ -26,4 +26,11 @@ public class welcomeController  {
         welcome.setText("Welcome "+ username);
     }
 
+    // when user click on continue it will switch to main screen
+    public void continueSetOnAction (ActionEvent event) {
+        DBUtils.changeScene(event,"main_screen.fxml","Main Screen",null);
+    }
 }
+
+
+

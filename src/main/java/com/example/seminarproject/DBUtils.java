@@ -18,7 +18,7 @@ public class DBUtils {
         // If they pass in the information
         if (username != null) {
             try {
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getClassLoader().getResource(fxmlFile));
+                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
                 root = loader.load();
                 welcomeController welcomeController1 = loader.getController();
                 welcomeController1.setUsername(username);
@@ -187,6 +187,56 @@ public class DBUtils {
                 }
 
             }
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    // Create seminar
+
+    public static void createSeminar(ActionEvent event, String topic, String guest , String date, String venue) {
+        Connection connection = null;
+        PreparedStatement pscInsert = null;
+        ResultSet resultSet = null;
+        // Set up connection with our database in mysql
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
+            pscInsert = connection.prepareStatement("INSERT INTO create_seminar(topic,guest,date,venue)VALUES(?,?,?,?)");
+            pscInsert.setString(1, topic);
+            pscInsert.setString(2, guest);
+            pscInsert.setString(3, date);
+            pscInsert.setString(4, venue);
+            pscInsert.executeUpdate();// To update the database
+        }
+    catch (SQLException e) {
+        e.printStackTrace();
+
+        // This will help to free database resourse when user log out
+    } finally {
+        // check resultset if it is not null
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // check psInsert if it is not null
+        if (pscInsert != null) {
+            try {
+                pscInsert.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        // check connection if it is not null
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
         }
     }
 }
