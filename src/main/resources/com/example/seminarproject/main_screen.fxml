@@ -17,17 +17,17 @@
             <Font name="Constantia" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="338.0" layoutY="147.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="View" textFill="WHITE">
+      <Button fx:id="viewButton" layoutX="338.0" layoutY="147.0" mnemonicParsing="false" onAction="#viewButtonSetOnAction" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="View" textFill="WHITE">
          <font>
             <Font name="Constantia" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="103.0" layoutY="257.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="Edit" textFill="WHITE">
+      <Button layoutX="103.0" layoutY="257.0" mnemonicParsing="false" onAction="#editButtonSetOnAction" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="Edit" textFill="WHITE">
          <font>
             <Font name="Constantia" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="338.0" layoutY="257.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="Delete" textFill="WHITE">
+      <Button layoutX="338.0" layoutY="257.0" mnemonicParsing="false" onAction="#deleteButtonSetOnAction" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Constantia" size="18.0" />
          </font>

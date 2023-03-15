@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 
-
+// Method to change scene
 public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String username) {
         Parent root = null;
@@ -75,7 +75,7 @@ public class DBUtils {
                 psInsert.executeUpdate();// To update the database
 
                 //To change scene from signup page to welcome page
-               DBUtils. changeScene(event, "welcome.fxml", "Welcome", username);
+                DBUtils.changeScene(event, "welcome.fxml", "Welcome", username);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -127,13 +127,13 @@ public class DBUtils {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
             preparedStatement = connection.prepareStatement("SELECT email,passsword FROM admin WHERE username=?");
-            preparedStatement.setString(1,username);
-            resultSet=preparedStatement.executeQuery();
+            preparedStatement.setString(1, username);
+            resultSet = preparedStatement.executeQuery();
 
             // To check if user is in the database
-            if(!resultSet.isBeforeFirst()){
+            if (!resultSet.isBeforeFirst()) {
                 System.out.println("User is not found in the database");
-                Alert alert=new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("The provided credential is incorrect");
                 alert.show();
             }
@@ -143,11 +143,11 @@ public class DBUtils {
                     String storeEmail = resultSet.getString("email");
                     String storePassword = resultSet.getString("passsword");
                     // To compare the password of user and in the database
-                    if(storeEmail.equals(email)&&storePassword.equals(password)) {
+                    if (storeEmail.equals(email) && storePassword.equals(password)) {
                         changeScene(event, "welcome.fxml", "welcome", username);
-                    } else{
+                    } else {
                         System.out.println("Password is incorrect");
-                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setContentText("The provided credential is incorrect");
                         alert.show();
                     }
@@ -158,8 +158,7 @@ public class DBUtils {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             {
                 // check resultset if it is not null
                 if (resultSet != null) {
@@ -192,7 +191,7 @@ public class DBUtils {
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // Create seminar
 
-    public static void createSeminar(ActionEvent event, String topic, String guest , String date, String venue) {
+    public static void createSeminar(ActionEvent event, String topic, String guest, String date, String venue) {
         Connection connection = null;
         PreparedStatement pscInsert = null;
         ResultSet resultSet = null;
@@ -205,38 +204,86 @@ public class DBUtils {
             pscInsert.setString(3, date);
             pscInsert.setString(4, venue);
             pscInsert.executeUpdate();// To update the database
-        }
-    catch (SQLException e) {
-        e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
 
-        // This will help to free database resourse when user log out
-    } finally {
-        // check resultset if it is not null
-        if (resultSet != null) {
-            try {
-                resultSet.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+            // This will help to free database resourse when user log out
+        } finally {
+            // check resultset if it is not null
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-        }
 
-        // check psInsert if it is not null
-        if (pscInsert != null) {
-            try {
-                pscInsert.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+            // check psInsert if it is not null
+            if (pscInsert != null) {
+                try {
+                    pscInsert.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-        }
-        // check connection if it is not null
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+            // check connection if it is not null
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-        }
 
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////
+
+    // delete seminar method
+    public static void deleteSeminar(ActionEvent event, String topic) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        // Set up connection with our database in mysql
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
+            preparedStatement = connection.prepareStatement("DELETE From create_seminar WHERE topic=?");
+            preparedStatement.setString(1, topic);
+           preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////
+    //edit seminar method
+
+    public static void editSeminar1(ActionEvent event, String topic) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        // Set up connection with our database in mysql
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
+            preparedStatement = connection.prepareStatement("SELECT From create_seminar WHERE topic=?");
+            preparedStatement.setString(1, topic);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void editSeminar(ActionEvent event, String topic,String guest, String date, String venue) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        // Set up connection with our database in mysql
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
+            preparedStatement = connection.prepareStatement("update create_seminar set topic = ? ,guest = ?,date = ?,venue = ? where topic = ? ");
+            preparedStatement.setString(1, topic);
+            preparedStatement.setString(2, guest);
+            preparedStatement.setString(3, date);
+            preparedStatement.setString(4, venue);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

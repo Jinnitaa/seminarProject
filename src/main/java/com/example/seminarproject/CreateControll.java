@@ -31,6 +31,9 @@ public class CreateControll {
 
         if(!topic.getText().trim().isEmpty() && !guest.getText().trim().isEmpty() && !date.getText().trim().isEmpty()&& !venue.getText().trim().isEmpty()){
             DBUtils.createSeminar(event,topic.getText(),guest.getText(),date.getText(),venue.getText());
+            Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Your information have been recorded");
+            alert.show();
         }
         else{
             System.out.println("Please fill in the information above");
@@ -44,9 +47,18 @@ public class CreateControll {
 
     }
 
-        public void cancelButtonSetOnAction(ActionEvent event){
-            System.out.println("cancel");
+    // when user click on back button
+
+        public void BackButtonSetOnAction(ActionEvent event){
+            DBUtils.changeScene(event,"main_screen.fxml","Main Screen", null);
         }
+
+    // when user click on view button
+    public void ViewButtonSetOnAction(ActionEvent event){
+        DBUtils.changeScene(event,"view_screen.fxml","View Screen", null);
+    }
+
+
 
 
 }

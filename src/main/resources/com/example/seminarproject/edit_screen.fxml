@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seminarproject.CreateControll">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seminarproject.EditController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <top>
             <AnchorPane prefHeight="92.0" prefWidth="600.0" style="-fx-background-color: #152b55;" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="216.0" layoutY="37.0" />
-                  <Label fx:id="welcome" layoutX="171.0" layoutY="28.0" text="Create Seminar " textFill="WHITE">
+                  <Label fx:id="welcome" layoutX="202.0" layoutY="28.0" text="Edit Seminar " textFill="WHITE">
                      <font>
                         <Font name="Britannic Bold" size="36.0" />
                      </font>
@@ -73,7 +73,7 @@
                      </cursor>
                   </TextField>
                   <Button fx:id="BackButton" layoutX="253.0" layoutY="256.0" mnemonicParsing="false" onAction="#BackButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: red;" text="Back" textFill="WHITE" />
-                  <Button fx:id="createButton" layoutX="23.0" layoutY="256.0" mnemonicParsing="false" onAction="#createButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #152b55;" text="Create " textFill="WHITE" />
+                  <Button fx:id="createButton" layoutX="23.0" layoutY="256.0" mnemonicParsing="false" onAction="#editButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #152b55;" text="Edit" textFill="WHITE" />
                   <Button fx:id="ViewButton" layoutX="138.0" layoutY="256.0" mnemonicParsing="false" onAction="#ViewButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #152b55;" text="View" textFill="WHITE" />
                </children>
             </AnchorPane>
