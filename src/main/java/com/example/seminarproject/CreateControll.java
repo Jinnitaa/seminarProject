@@ -10,8 +10,7 @@ import javafx.stage.Stage;
 
 public class CreateControll {
     //Button field
-    @FXML
-    private Button cancelButton;
+
 
     @FXML
 

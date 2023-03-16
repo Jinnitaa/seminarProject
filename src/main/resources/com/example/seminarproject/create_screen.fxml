@@ -78,9 +78,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="BackButton" layoutX="255.0" layoutY="322.0" mnemonicParsing="false" onAction="#BackButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: red;" text="Back" textFill="WHITE" />
-                  <Button fx:id="createButton" layoutX="25.0" layoutY="322.0" mnemonicParsing="false" onAction="#createButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #152b55;" text="Create " textFill="WHITE" />
-                  <Button fx:id="ViewButton" layoutX="140.0" layoutY="322.0" mnemonicParsing="false" onAction="#ViewButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #152b55;" text="View" textFill="WHITE" />
+                  <Button fx:id="BackButton" layoutX="254.0" layoutY="334.0" mnemonicParsing="false" onAction="#BackButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: red;" text="Back" textFill="WHITE" />
+                  <Button fx:id="createButton" layoutX="26.0" layoutY="334.0" mnemonicParsing="false" onAction="#createButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #152b55;" text="Create " textFill="WHITE" />
+                  <Button fx:id="ViewButton" layoutX="140.0" layoutY="334.0" mnemonicParsing="false" onAction="#ViewButtonSetOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #152b55;" text="View" textFill="WHITE" />
                   <TextField fx:id="id" layoutX="149.0" layoutY="102.0" opacity="0.88" prefHeight="28.0" prefWidth="210.0" style="-fx-border-color: #152b55; -fx-background-color: #F6F6FF;">
                      <cursor>
                         <Cursor fx:constant="HAND" />

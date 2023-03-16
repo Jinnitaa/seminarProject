@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Line?>
@@ -16,32 +18,37 @@
          <children>
             <AnchorPane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #152b55;">
                <children>
-                  <Label layoutX="53.0" layoutY="73.0" text="Welcome" textFill="#fdfdfd">
+                  <Label layoutX="53.0" layoutY="135.0" text="Welcome" textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="76.0" layoutY="112.0" text="To" textFill="#fdfdfd">
+                  <Label layoutX="76.0" layoutY="174.0" text="To" textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="52.0" layoutY="145.0" text="Seminar " textFill="#fdfdfd">
+                  <Label layoutX="52.0" layoutY="207.0" text="Seminar " textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="33.0" layoutY="188.0" text="Management" textFill="#fdfdfd">
+                  <Label layoutX="33.0" layoutY="250.0" text="Management" textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="62.0" layoutY="234.0" text="System" textFill="#fdfdfd">
+                  <Label layoutX="62.0" layoutY="296.0" text="System" textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Line endX="84.66668701171875" layoutX="100.0" layoutY="290.0" startX="-85.16667938232422" stroke="#f2f2f2" />
+                  <Line endX="84.66668701171875" layoutX="100.0" layoutY="352.0" startX="-85.16667938232422" stroke="#f2f2f2" />
+                  <ImageView fitHeight="131.0" fitWidth="201.0" layoutX="2.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
