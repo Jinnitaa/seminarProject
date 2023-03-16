@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Line?>
@@ -16,32 +18,37 @@
          <children>
             <AnchorPane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #152b55;">
                <children>
-                  <Label layoutX="53.0" layoutY="73.0" text="Welcome" textFill="#fdfdfd">
+                  <Label layoutX="53.0" layoutY="126.0" text="Welcome" textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="76.0" layoutY="112.0" text="To" textFill="#fdfdfd">
+                  <Label layoutX="86.0" layoutY="167.0" text="To" textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="52.0" layoutY="145.0" text="Seminar " textFill="#fdfdfd">
+                  <Label layoutX="51.0" layoutY="200.0" text="Seminar " textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="33.0" layoutY="188.0" text="Management" textFill="#fdfdfd">
+                  <Label layoutX="33.0" layoutY="243.0" text="Management" textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="62.0" layoutY="234.0" text="System" textFill="#fdfdfd">
+                  <Label layoutX="61.0" layoutY="283.0" text="System" textFill="#fdfdfd">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Line endX="84.66668701171875" layoutX="100.0" layoutY="290.0" startX="-85.16667938232422" stroke="#f2f2f2" />
+                  <Line endX="84.66668701171875" layoutX="98.0" layoutY="325.0" startX="-85.16667938232422" stroke="#f2f2f2" />
+                  <ImageView fitHeight="131.0" fitWidth="202.0" layoutX="1.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
@@ -50,7 +57,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F6F6FF;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="90.0" layoutY="36.0" text="Login As An Admin" textFill="#152b55">
+            <Label layoutX="100.0" layoutY="38.0" text="Login As An Admin" textFill="#152b55">
                <font>
                   <Font name="Britannic Bold" size="24.0" />
                </font>
@@ -75,7 +82,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor></TextField>
             <Button fx:id="loginButton" layoutX="51.0" layoutY="267.0" mnemonicParsing="false" onAction="#loginButtonSetOnAction" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: #152b55;" text="Login" textFill="WHITE" />
-            <Button fx:id="cancelButton" layoutX="52.0" layoutY="313.0" mnemonicParsing="false" onAction="#cancelButtonSetOnAction" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: #152b55;" text="Cancel" textFill="WHITE" />
+            <Button fx:id="cancelButton" layoutX="52.0" layoutY="313.0" mnemonicParsing="false" onAction="#cancelButtonSetOnAction" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE" />
             <Label fx:id="message" layoutX="186.0" layoutY="241.0" textFill="RED" />
             <Label layoutX="89.0" layoutY="362.0" text="Haven't had an account?">
                <font>

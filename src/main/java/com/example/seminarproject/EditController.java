@@ -10,6 +10,8 @@ public class EditController {
     @FXML
     private TextField topic;
     @FXML
+    private TextField id;
+    @FXML
     private TextField guest;
 
     @FXML
@@ -19,7 +21,7 @@ public class EditController {
     // When user click on delete
     public void editButtonSetOnAction(ActionEvent event) {
 
-        DBUtils.editSeminar(event,topic.getText(),guest.getText(),date.getText(),venue.getText());
+        DBUtils.editSeminar(event, Integer.parseInt(id.getText()),topic.getText(),guest.getText(),date.getText(),venue.getText());
         Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
         alert.setContentText("Seminar have been edited from the record");
         alert.show();

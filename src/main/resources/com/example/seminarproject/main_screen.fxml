@@ -2,35 +2,57 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F6F6FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seminarproject.MainscreenController">
    <children>
-      <Label fx:id="welcome" layoutX="62.0" layoutY="47.0" text="Seminar Management System  " textFill="#152b55">
+      <Label fx:id="welcome" layoutX="61.0" layoutY="14.0" text="Seminar Management System  " textFill="#152b55">
          <font>
             <Font name="Britannic Bold" size="36.0" />
          </font>
       </Label>
-      <Button fx:id="Create" layoutX="103.0" layoutY="147.0" mnemonicParsing="false" onAction="#createButtonSetOnAction" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="Create " textFill="WHITE">
+      <Button fx:id="Create" layoutX="115.0" layoutY="182.0" mnemonicParsing="false" onAction="#createButtonSetOnAction" prefHeight="36.0" prefWidth="100.0" style="-fx-background-color: #152b55;" text="Create " textFill="WHITE">
          <font>
             <Font name="Constantia" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="viewButton" layoutX="338.0" layoutY="147.0" mnemonicParsing="false" onAction="#viewButtonSetOnAction" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="View" textFill="WHITE">
+      <Button fx:id="viewButton" layoutX="371.0" layoutY="182.0" mnemonicParsing="false" onAction="#viewButtonSetOnAction" prefHeight="36.0" prefWidth="100.0" style="-fx-background-color: #152b55;" text="View" textFill="WHITE">
          <font>
             <Font name="Constantia" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="103.0" layoutY="257.0" mnemonicParsing="false" onAction="#editButtonSetOnAction" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="Edit" textFill="WHITE">
+      <Button layoutX="115.0" layoutY="350.0" mnemonicParsing="false" onAction="#editButtonSetOnAction" prefHeight="36.0" prefWidth="100.0" style="-fx-background-color: #152b55;" text="Edit" textFill="WHITE">
          <font>
             <Font name="Constantia" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="338.0" layoutY="257.0" mnemonicParsing="false" onAction="#deleteButtonSetOnAction" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #152b55;" text="Delete" textFill="WHITE">
+      <Button layoutX="371.0" layoutY="350.0" mnemonicParsing="false" onAction="#deleteButtonSetOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #152b55;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Constantia" size="18.0" />
          </font>
       </Button>
+      <ImageView fx:id="seminar1" fitHeight="102.0" fitWidth="167.0" layoutX="82.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Seminars-1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="111.0" fitWidth="167.0" layoutX="337.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@seminar2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="111.0" fitWidth="167.0" layoutX="81.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@seminar3.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="111.0" fitWidth="166.0" layoutX="338.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@seminar4.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

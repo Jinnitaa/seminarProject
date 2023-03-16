@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 
+
+
 // Method to change scene
 public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String username) {
@@ -191,18 +193,19 @@ public class DBUtils {
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // Create seminar
 
-    public static void createSeminar(ActionEvent event, String topic, String guest, String date, String venue) {
+    public static void createSeminar(ActionEvent event,int id, String topic, String guest, String date, String venue) {
         Connection connection = null;
         PreparedStatement pscInsert = null;
         ResultSet resultSet = null;
         // Set up connection with our database in mysql
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
-            pscInsert = connection.prepareStatement("INSERT INTO create_seminar(topic,guest,date,venue)VALUES(?,?,?,?)");
-            pscInsert.setString(1, topic);
-            pscInsert.setString(2, guest);
-            pscInsert.setString(3, date);
-            pscInsert.setString(4, venue);
+            pscInsert = connection.prepareStatement("INSERT INTO create_seminar(id,topic,guest,date,venue)VALUES(?,?,?,?,?)");
+            pscInsert.setInt(1, id);
+            pscInsert.setString(2, topic);
+            pscInsert.setString(3, guest);
+            pscInsert.setString(4, date);
+            pscInsert.setString(5, venue);
             pscInsert.executeUpdate();// To update the database
         } catch (SQLException e) {
             e.printStackTrace();
@@ -240,50 +243,63 @@ public class DBUtils {
     ////////////////////////////////////////////////////////////////////////////////////////////
 
     // delete seminar method
-    public static void deleteSeminar(ActionEvent event, String topic) {
+    public static void deleteSeminar(ActionEvent event, int id) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         // Set up connection with our database in mysql
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
-            preparedStatement = connection.prepareStatement("DELETE From create_seminar WHERE topic=?");
-            preparedStatement.setString(1, topic);
+            preparedStatement = connection.prepareStatement("DELETE From create_seminar WHERE id=?");
+            preparedStatement.setInt(1, id);
            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////////
-    //edit seminar method
 
-    public static void editSeminar1(ActionEvent event, String topic) {
+    public static void editSeminar(ActionEvent event, int id,String topic,String guest, String date, String venue) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         // Set up connection with our database in mysql
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
-            preparedStatement = connection.prepareStatement("SELECT From create_seminar WHERE topic=?");
-            preparedStatement.setString(1, topic);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void editSeminar(ActionEvent event, String topic,String guest, String date, String venue) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        // Set up connection with our database in mysql
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/seminarsystem", "root", "Nytadbms12345");
-            preparedStatement = connection.prepareStatement("update create_seminar set topic = ? ,guest = ?,date = ?,venue = ? where topic = ? ");
+            preparedStatement = connection.prepareStatement("update create_seminar set topic = ? ,guest = ?,date = ?,venue = ? where id = ? ");
             preparedStatement.setString(1, topic);
             preparedStatement.setString(2, guest);
             preparedStatement.setString(3, date);
             preparedStatement.setString(4, venue);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
+            preparedStatement.setInt(5, id);
+            // Execute the update statement
+            int rowsUpdated;
+            rowsUpdated = preparedStatement.executeUpdate();
+
+            // Check if the record was updated
+            if (rowsUpdated > 0) {
+                System.out.println("Record updated successfully");
+            } else {
+                System.out.println("No record found with id: " + id);
+            }
+
+        } catch (SQLException se) {
+            // Handle errors for JDBC
+            se.printStackTrace();
+        } catch (Exception e) {
+            // Handle errors for Class.forName
             e.printStackTrace();
+        } finally {
+            // Close resources
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+            } catch (SQLException se2) {
+            } // nothing we can do
+            try {
+                if (connection != null) connection.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
         }
     }
-
 }
+
+

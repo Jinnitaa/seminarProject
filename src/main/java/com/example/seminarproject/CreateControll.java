@@ -19,6 +19,8 @@ public class CreateControll {
     private TextField topic;
     @FXML
     private TextField guest;
+    @FXML
+    private TextField id;
 
     @FXML
     private TextField date;
@@ -30,7 +32,7 @@ public class CreateControll {
         // To check if all the textfield is not empty
 
         if(!topic.getText().trim().isEmpty() && !guest.getText().trim().isEmpty() && !date.getText().trim().isEmpty()&& !venue.getText().trim().isEmpty()){
-            DBUtils.createSeminar(event,topic.getText(),guest.getText(),date.getText(),venue.getText());
+            DBUtils.createSeminar(event, Integer.parseInt(id.getText()),topic.getText(),guest.getText(),date.getText(),venue.getText());
             Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
             alert.setContentText("Your information have been recorded");
             alert.show();

@@ -8,12 +8,12 @@ import javafx.scene.control.TextField;
 public class DeleteController {
     //Text Field
     @FXML
-    private TextField topic;
+    private TextField id;
 
     // When user click on delete
     public void DeleteButtonSetOnAction(ActionEvent event) {
 
-        DBUtils.deleteSeminar(event,topic.getText());
+        DBUtils.deleteSeminar(event, Integer.parseInt(id.getText()));
         Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
         alert.setContentText("Seminar have been deleted from the record");
         alert.show();

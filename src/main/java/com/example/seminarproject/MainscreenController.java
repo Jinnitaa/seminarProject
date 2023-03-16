@@ -18,7 +18,7 @@ public class MainscreenController {
     }
     // When user click on edit button
     public void editButtonSetOnAction (ActionEvent event){
-        DBUtils.changeScene(event,"edit1_screen.fxml","Edit Screen", null);
+        DBUtils.changeScene(event,"edit_screen.fxml","Edit Screen", null);
     }
 
 }
